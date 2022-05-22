@@ -79,9 +79,9 @@ ALTER TABLE `Employee` ADD CONSTRAINT `Employee_fk0` FOREIGN KEY (`Department_ID
 
 ALTER TABLE `Delivery_Order` ADD CONSTRAINT `Delivery_Order_fk1` FOREIGN KEY (`Delviery_ID`) REFERENCES `Delivery`(`Del_ID`);
 
-ALTER TABLE `Order Details` ADD CONSTRAINT `Order Details_fk0` FOREIGN KEY (`Order_ID`) REFERENCES `Delivery_Order`(`Order_ID`);
+ALTER TABLE `Order_Details` ADD CONSTRAINT `Order Details_fk0` FOREIGN KEY (`Order_ID`) REFERENCES `Delivery_Order`(`Order_ID`);
 
-ALTER TABLE `Order Details` ADD CONSTRAINT `Order Details_fk1` FOREIGN KEY (`Menu_item_ID`) REFERENCES `Menu item`(`Item_ID`);
+ALTER TABLE `Order_Details` ADD CONSTRAINT `Order Details_fk1` FOREIGN KEY (`Menu_item_ID`) REFERENCES `Menu item`(`Item_ID`);
 
 ALTER TABLE `Order_in` ADD CONSTRAINT `Order_in_fk0` FOREIGN KEY (`Table_id`) REFERENCES `Tables`(`Table_ID`);
 
