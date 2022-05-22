@@ -344,7 +344,7 @@ app.get('/outOrder' , function(req , res){
 
 app.post('/addOutOrder' , function(req , res){
   const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
-  let query = 'insert into Delivery_Order (Customer_ID , Order_Time , Delviery_ID) values (' + [Number(req.body.customerId) , date.toLocaleDateString('en-us' , options) , Number(req.body.deliveryId)] + ')';
+  let query = 'insert into delivery_Order (Customer_ID , Order_Time , Delviery_ID) values (' + [Number(req.body.customerId) , date.toLocaleDateString('en-us' , options) , Number(req.body.deliveryId)] + ')';
   console.log(date.toLocaleDateString('en-us' , options));
   db.query(query, function(err, rows , columns){
         if(err){

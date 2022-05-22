@@ -76,7 +76,6 @@ CREATE TABLE `order_in_detailes` (
 
 ALTER TABLE `Employee` ADD CONSTRAINT `Employee_fk0` FOREIGN KEY (`Department_ID`) REFERENCES `Department`(`Dep_ID`);
 
-ALTER TABLE `Delivery_Order` ADD CONSTRAINT `Delivery_Order_fk0` FOREIGN KEY (`Customer_ID`) REFERENCES `Customer`(`Cust_ID`);
 
 ALTER TABLE `Delivery_Order` ADD CONSTRAINT `Delivery_Order_fk1` FOREIGN KEY (`Delviery_ID`) REFERENCES `Delivery`(`Del_ID`);
 
