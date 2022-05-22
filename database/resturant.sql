@@ -63,7 +63,7 @@ CREATE TABLE `Tables` (
 );
 
 CREATE TABLE `Order_in` (
-	`order_no` INT NOT NULL,
+	`order_no` INT NOT NULL AUTO_INCREMENT,
 	`Table_id` INT NOT NULL,
 	PRIMARY KEY (`order_no`)
 );
