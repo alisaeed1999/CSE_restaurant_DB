@@ -7,7 +7,7 @@ const app = express();
 let date = new Date();
 
 let db = mysql.createConnection({
-  host:'127.0.0.1',
+  host:'localhost',
   user: 'root',
   password:'Ali01125908919',
   database:'resturant'
