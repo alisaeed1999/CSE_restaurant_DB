@@ -14,7 +14,6 @@ CREATE TABLE `Department` (
 	`Dep_ID` INT NOT NULL AUTO_INCREMENT,
 	`Dep_Name` varchar(100) NOT NULL,
 	`Dep_Phone` varchar(20) NOT NULL,
-	`Dep_Manger_ID` INT NOT NULL,
 	PRIMARY KEY (`Dep_ID`)
 );
 
