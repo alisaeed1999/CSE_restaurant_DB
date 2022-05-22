@@ -87,4 +87,4 @@ ALTER TABLE `Order_in` ADD CONSTRAINT `Order_in_fk0` FOREIGN KEY (`Table_id`) RE
 
 ALTER TABLE `order_in_detailes` ADD CONSTRAINT `order_in_detailes_fk0` FOREIGN KEY (`order_no`) REFERENCES `Order_in`(`order_no`);
 
-ALTER TABLE `order_in_detailes` ADD CONSTRAINT `order_in_detailes_fk1` FOREIGN KEY (`menu_item_id`) REFERENCES `Menu item`(`Item_ID`);
+ALTER TABLE `order_in_detailes` ADD CONSTRAINT `order_in_detailes_fk1` FOREIGN KEY (`menu_item_id`) REFERENCES `Menu_item`(`Item_ID`);
