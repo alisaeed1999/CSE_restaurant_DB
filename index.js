@@ -57,7 +57,7 @@ app.get('/',function(req , res){
 // ********************** delivery file ********************* ok //
 app.get('/delivery' , function(req , res){
   let Data = {};
-  let query = 'SELECT * FROM delivery';
+  let query = 'SELECT * FROM Delivery';
   db.query(query , function(err , rows , columns){
     if (err) throw err;
     for(let i1 = 0; i1<columns.length; i1++){
@@ -71,7 +71,7 @@ app.get('/delivery' , function(req , res){
 });
 
 app.post('/addDelivery' , function(req , res){
-  let query = 'insert into delivery (Del_Name , Phone) values (' + ['"'+req.body.name+'"' , '"'+req.body.phone+'"'] + ')';
+  let query = 'insert into Delivery (Del_Name , Phone) values (' + ['"'+req.body.name+'"' , '"'+req.body.phone+'"'] + ')';
   db.query(query, function(err, rows , columns){
         if(err){
           console.log('connection error: '+ err.stack)
@@ -84,7 +84,7 @@ app.post('/addDelivery' , function(req , res){
 // ******************** in Order file ********************** ok //
 app.get('/inOrder' , function(req , res){
   let Data = {};
-  let query = 'SELECT * FROM order_in';
+  let query = 'SELECT * FROM Order_in';
   db.query(query , function(err , rows , columns){
     if (err) throw err;
     for(let i1 = 0; i1<columns.length; i1++){
@@ -98,7 +98,7 @@ app.get('/inOrder' , function(req , res){
 });
 
 app.post('/addInOrder' , function(req , res){
-  let query = 'insert into order_in (Table_id) values (' + Number(req.body.tableId)+ ')';
+  let query = 'insert into Order_in (Table_id) values (' + Number(req.body.tableId)+ ')';
   db.query(query, function(err, rows , columns){
         if(err){
           console.log('connection error: '+ err.stack)
@@ -194,7 +194,7 @@ app.post('/addDepartment' , function(req , res){
 // *********************** employee ****************** ok //
 app.get('/employee' , function(req , res){
   let Data = {};
-  let query = 'SELECT * FROM employee';
+  let query = 'SELECT * FROM Employee';
   db.query(query , function(err , rows , columns){
     if (err) throw err;
     for(let i1 = 0; i1<columns.length; i1++){
@@ -208,7 +208,7 @@ app.get('/employee' , function(req , res){
 });
 
 app.post('/addEmployee' , function(req , res){
-  let query = 'INSERT INTO employee (Name,phone,Adress,Salary,Department_ID)VALUES('+['"'+req.body.name+'"','"'+req.body.phone+'"','"'+req.body.address+'"',parseFloat(req.body.salary) , Number(req.body.departmentId)]+')';
+  let query = 'INSERT INTO Employee (Name,phone,Adress,Salary,Department_ID)VALUES('+['"'+req.body.name+'"','"'+req.body.phone+'"','"'+req.body.address+'"',parseFloat(req.body.salary) , Number(req.body.departmentId)]+')';
   db.query(query, function(err, rows , columns){
         if(err){
           console.log('connection error: '+ err.stack)
@@ -247,7 +247,7 @@ app.post('/addInOrderDetails' , function(req , res){
 // ************************************* menu ****************************** ok //
 app.get('/menu' , function(req , res){
   let Data = {};
-  let query = 'SELECT * FROM menu_item';
+  let query = 'SELECT * FROM Menu_item';
   db.query(query , function(err , rows , columns){
     if (err) throw err;
     for(let i1 = 0; i1<columns.length; i1++){
@@ -261,7 +261,7 @@ app.get('/menu' , function(req , res){
 });
 
 app.post('/addMenu' , function(req , res){
-  let query = 'insert into menu_item (item_Name , item_Price) values (' + ['"'+req.body.name+'"' , parseFloat(req.body.price)] + ')';
+  let query = 'insert into Menu_item (item_Name , item_Price) values (' + ['"'+req.body.name+'"' , parseFloat(req.body.price)] + ')';
   db.query(query, function(err, rows , columns){
         if(err){
           console.log('connection error: '+ err.stack)
@@ -274,7 +274,7 @@ app.post('/addMenu' , function(req , res){
 // *************************************** order details ******************** ok //
 app.get('/orderDetails' , function(req , res){
   let Data = {};
-  let query = 'SELECT * FROM order_details';
+  let query = 'SELECT * FROM Order_Details';
   db.query(query , function(err , rows , columns){
     if (err) throw err;
     for(let i1 = 0; i1<columns.length; i1++){
@@ -288,7 +288,7 @@ app.get('/orderDetails' , function(req , res){
 });
 
 app.post('/addOrderDetails' , function(req , res){
-  let query = 'insert into order_details (Order_ID , Menu_item_ID , Quantity , Total) values (' + [Number(req.body.orderNum),Number(req.body.menuItemId),Number(req.body.quntity),parseFloat(req.body.price)] + ')';
+  let query = 'insert into Order_Details (Order_ID , Menu_item_ID , Quantity , Total) values (' + [Number(req.body.orderNum),Number(req.body.menuItemId),Number(req.body.quntity),parseFloat(req.body.price)] + ')';
   db.query(query, function(err, rows , columns){
         if(err){
           console.log('connection error: '+ err.stack)
@@ -301,7 +301,7 @@ app.post('/addOrderDetails' , function(req , res){
 // ************************************ orders  ************************//
 app.get('/orders' , function(req , res){
   let Data = {};
-  let query = 'select order_no,sum(item_price)as "Total_Price" from resturant.order_in_detailes,resturant.menu_item where resturant.order_in_detailes.menu_item_id = resturant.menu_item.Item_ID group by resturant.order_in_detailes.order_no';
+  let query = 'select order_no,sum(item_price)as "Total_Price" from sql11494410.order_in_detailes,sql11494410.Menu_item where sql11494410.order_in_detailes.menu_item_id = sql11494410.Menu_item.Item_ID group by sql11494410.order_in_detailes.order_no';
   db.query(query , function(err , rows , columns){
     if (err) throw err;
     for(let i1 = 0; i1<columns.length; i1++){
@@ -344,7 +344,7 @@ app.get('/outOrder' , function(req , res){
 
 app.post('/addOutOrder' , function(req , res){
   const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
-  let query = 'insert into delivery_Order (Customer_ID , Order_Time , Delviery_ID) values (' + [Number(req.body.customerId) , date.toLocaleDateString('en-us' , options) , Number(req.body.deliveryId)] + ')';
+  let query = 'insert into Delivery_Order (Customer_ID , Order_Time , Delviery_ID) values (' + [Number(req.body.customerId) , date.toLocaleDateString('en-us' , options) , Number(req.body.deliveryId)] + ')';
   console.log(date.toLocaleDateString('en-us' , options));
   db.query(query, function(err, rows , columns){
         if(err){
@@ -358,7 +358,7 @@ app.post('/addOutOrder' , function(req , res){
 /* ******************** out order history ******************* */
 app.get('/deliveryHist' , function(req , res){
   let Data = {};
-  let query = 'select Order_ID,sum(item_price)as "Total_Price" from resturant.order_details,resturant.menu_item where resturant.order_details.Menu_item_ID = resturant.menu_item.Item_ID group by resturant.order_details.Order_ID';
+  let query = 'select Order_ID,sum(item_price)as "Total_Price" from sql11494410.Order_Details,sql11494410.Menu_item where sql11494410.Order_Details.Menu_item_ID = sql11494410.Menu_item.Item_ID group by sql11494410.Order_Details.Order_ID';
   db.query(query , function(err , rows , columns){
     if (err) throw err;
     for(let i1 = 0; i1<columns.length; i1++){
