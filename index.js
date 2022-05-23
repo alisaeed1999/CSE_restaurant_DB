@@ -7,10 +7,10 @@ const app = express();
 let date = new Date();
 
 let db = mysql.createConnection({
-  host:'localhost',
-  user: 'root',
-  password:'Ali01125908919',
-  database:'resturant'
+  host:'sql11.freemysqlhosting.net',
+  user: 'sql11494410',
+  password:'rTwz2eJ4FX',
+  database:'sql11494410'
 });
 
 db.connect(function(err){

@@ -1,0 +1,11 @@
+-- use resturant;
+-- select Emp_ID , Name , Salary  from employee where Salary > 1500 && Salary < 2000;
+-- select Emp_ID , Name , Salary , Department_ID from employee where Department_ID = 2;
+-- select Emp_ID , Name , Salary , Dep_Name from employee,department ;
+-- select Emp_ID , Name , Salary , Dep_Name from employee,department where employee.Department_ID = department.Dep_ID;
+-- select Department_ID, sum(Salary)  from employee group by employee.Department_ID;
+-- select Department_ID, count(Department_ID)  from employee group by employee.Department_ID;
+-- select Department_ID,count(Department_ID),Dep_Name  from employee , department where employee.Department_ID=department.Dep_ID group by employee.Department_ID;
+-- select Department_ID,count(Department_ID),Dep_Name  from employee , department where employee.Department_ID=department.Dep_ID group by employee.Department_ID;
+-- select Order_ID,sum(item_price)as "Total_Price" from resturant.order_details,resturant.menu_item where resturant.order_details.Menu_item_ID = resturant.menu_item.Item_ID group by resturant.order_details.Order_ID;
+-- select * from department;
