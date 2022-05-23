@@ -70,17 +70,8 @@ Insert into resturant.order_in_detailes (order_no,menu_item_id, Quntity, price) 
 Insert into resturant.order_in_detailes (order_no,menu_item_id, Quntity, price) values (7,3 ,2 ,0 );
 Insert into resturant.order_in_detailes (order_no,menu_item_id, Quntity, price) values (7,4 ,2 ,0 );
 
-use resturant;
-CREATE TABLE `Delivery_Order` (
-	`Order_ID` INT NOT NULL AUTO_INCREMENT,
-	`Customer_ID` INT NOT NULL,
-	`Order_Time` TIME NOT NULL,
-	`Delviery_ID` INT NOT NULL,
-	PRIMARY KEY (`Order_ID`)
-);
 
-ALTER TABLE `Delivery_Order` ADD CONSTRAINT `Delivery_Order_fk0` FOREIGN KEY (`Customer_ID`) REFERENCES `Customer`(`Cust_ID`);
-ALTER TABLE `Delivery_Order` ADD CONSTRAINT `Delivery_Order_fk1` FOREIGN KEY (`Delviery_ID`) REFERENCES `Delivery`(`Del_ID`);
+
 
 
 Insert into resturant.order_details (Order_ID,Menu_item_ID, Quantity, Total) values ( 1, 1,3 , 0);
