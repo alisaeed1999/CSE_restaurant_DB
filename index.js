@@ -4,7 +4,7 @@ const mysql = require('mysql');
 
 const app = express();
 
-let date = new Date();
+let date = Date.now();
 
 let db = mysql.createConnection({
   host:'sql11.freemysqlhosting.net',
@@ -343,9 +343,9 @@ app.get('/outOrder' , function(req , res){
 });
 
 app.post('/addOutOrder' , function(req , res){
+  let dateNow = new Date(date);
   const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
-  let query = 'insert into Delivery_Order (Customer_ID , Order_Time , Delviery_ID) values (' + [Number(req.body.customerId) , date.toLocaleDateString('en-us' , options) , Number(req.body.deliveryId)] + ')';
-  console.log(date.toLocaleDateString('en-us' , options));
+  let query = 'insert into Delivery_Order (Customer_ID , Order_Time , Delviery_ID) values (' + [Number(req.body.customerId) , '"'+dateNow.getHours()+':'+dateNow.getMinutes()+':'+dateNow.getSeconds()+'"' , Number(req.body.deliveryId)] + ')';
   db.query(query, function(err, rows , columns){
         if(err){
           console.log('connection error: '+ err.stack)
